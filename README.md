@@ -19,5 +19,14 @@ Use the provided information to create a table schema for each of the six CSV fi
   - Be sure to create the tables in the correct order to handle the foreign keys.
   - Import each CSV file into its corresponding SQL table.
 
+
+
 ### Data Analysis 
 ## 
+List the employee number, last name, first name, sex, and salary of each employee (2 points)
+![image](https://github.com/thesarahcain/sql-challenge/assets/148586543/f67310bd-a0f9-46fd-885c-863c5011b1c9)
+
+List the first name, last name, and hire date for the employees who were hired in 1986 (2 points)
+![image](https://github.com/thesarahcain/sql-challenge/assets/148586543/01144a16-133f-42b7-bb57-41a6f28fe6db)
+
+
