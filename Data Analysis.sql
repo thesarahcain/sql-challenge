@@ -8,8 +8,8 @@ SELECT employees_table.first_name, employees_table.last_name, employees_table.hi
 FROM employees_table
 WHERE hire_date >= '1986-01-01' AND hire_date < '1987-01-01'
 
---ERROR!!!! List the manager of each department along with their department number, department name, employee number, last name, and first name.
-SELECT depart_manager_table.dept_no, departments_table.dept_name, employees_table.emp_no, employees_table.last_name, employees_table.first_name
+--List the manager of each department along with their department number, department name, employee number, last name, and first name.
+SELECT dept_manager_table.dept_no, departments_table.dept_name, dept_manager_table.emp_no, employees_table.last_name, employees_table.first_name
 FROM dept_manager_table 
 INNER JOIN departments_table ON dept_manager_table.dept_no = departments_table.dept_no 
 INNER JOIN employees_table ON dept_manager_table.emp_no = employees_table.emp_no
@@ -26,3 +26,15 @@ INNER JOIN dept_emp_table ON employees_table.emp_no = dept_emp_table.emp_no
 INNER JOIN departments_table ON dept_emp_table.dept_no = departments_table.dept_no
 WHERE dept_name ='Sales'
 
+--List each employee in the Sales and Development departments, including their employee number, last name, first name, and department name.
+SELECT employees_table.emp_no, employees_table.last_name, employees_table.first_name, departments_table.dept_name
+FROM employees_table  
+INNER JOIN dept_emp_table ON employees_table.emp_no = dept_emp_table.emp_no
+INNER JOIN departments_table ON dept_emp_table.dept_no = departments_table.dept_no
+WHERE dept_name = 'Sales' OR dept_name = 'Development'
+
+-- List the frequency counts, in descending order, of all the employee last names (that is, how many employees share each last name).
+SELECT last_name, COUNT(*) AS frequency_count
+FROM employees_table
+GROUP BY last_name
+ORDER BY frequency_count DESC;
